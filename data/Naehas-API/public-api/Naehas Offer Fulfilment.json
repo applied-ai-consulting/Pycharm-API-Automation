@@ -1,0 +1,839 @@
+{
+  "info": {
+    "_postman_id": "933180f1-8009-48fc-a1b1-1be1e7e4390a",
+    "name": "Naehas Offer Fulfilment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21358631",
+    "_collection_link": "https://crimson-sunset-654635.postman.co/workspace/Project~1fcdaf73-13a8-4feb-a52e-1b73b9b2d617/collection/21358631-933180f1-8009-48fc-a1b1-1be1e7e4390a?action=share&source=collection_link&creator=21358631"
+  },
+  "item": [
+    {
+      "name": "health check",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:7777/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"status\": \"ok\"}"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:7777/info",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "info"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"agents\": [{\"key\": \"Offer-Fullfilment-Assistant\", \"description\": \"\", \"samples\": [{\"label\": \"Offer Collection\", \"value\": \"Collect offers for Bank of America\"}, {\"label\": \"List Banks\", \"value\": \"List all banks with total number of offers\"}, {\"label\": \"List Offers by Bank\", \"value\": \"List all offers for Bank of America\"}]}], \"models\": [\"fake\", \"gpt-4o\", \"gpt-4o-mini\"], \"default_agent\": \"Offer-Fullfilment-Assistant\", \"default_model\": \"gpt-4o-mini\"}"
+        }
+      ]
+    },
+    {
+      "name": "stream",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "text/event-stream"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Show me all banks with their total number of offers\",\n  \"model\": \"gpt-4o-mini\",\n  \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\n  \"user_id\": \"Suvarna\",\n  \"label\": \"string\",\n  \"is_first_message\": false,\n  \"project_id\": 1,\n  \"stream_tokens\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/stream?agent_id=Offer-Fullfilment-Assistant",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "stream"
+          ],
+          "query": [
+            {
+              "key": "agent_id",
+              "value": "Offer-Fullfilment-Assistant"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK"
+        }
+      ]
+    },
+    {
+      "name": "chats/{chat_id}/share",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"chat_id\": \"{{chat_id}}\", \r\n\"shared_with_user_id\": \"{{shared_with_user_id}}\",\r\n\"shared_by_user_id\": \"{{shared_by_user_id}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/chats/{{chat_id}}}/share",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "chats",
+            "{{chat_id}}}",
+            "share"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 500,
+          "status": "Internal Server Error"
+        }
+      ]
+    },
+    {
+      "name": "{agent_id}/invoke",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"message\": \"Show me all banks with their total number of offers\",\r\n    \"model\": \"gpt-4o-mini\",\r\n    \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\r\n    \"user_id\": \"XYZ\",\r\n    \"label\": \"string\",\r\n    \"is_first_message\": false,\r\n    \"project_id\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/{{agent_id}}/invoke",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "{{agent_id}}",
+            "invoke"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK"
+        }
+      ]
+    },
+    {
+      "name": "History",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"thread_id\": \"{{thread_id}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/history",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "history"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK"
+        }
+      ]
+    },
+    {
+      "name": "/threads",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7777/threads?user_id=Suvarna",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "threads"
+          ],
+          "query": [
+            {
+              "key": "user_id",
+              "value": "Suvarna"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"threads\": [], \"total\": 0, \"page\": 1, \"page_size\": 10, \"total_pages\": 0}"
+        }
+      ]
+    },
+    {
+      "name": "/threads/project-Create",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"project_name\": \"Listing offers\",\n  \"user_id\": \"user_123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/threads/project",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "threads",
+            "project"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"status\": \"success\", \"project_name\": \"Listing offers\", \"user_id\": \"user_123\"}"
+        }
+      ]
+    },
+    {
+      "name": "/threads/project-List",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7777/threads/projects?user_id=Suvarna",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "threads",
+            "projects"
+          ],
+          "query": [
+            {
+              "key": "user_id",
+              "value": "Suvarna"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"projects\": [], \"total\": 0, \"page\": 1, \"page_size\": 10, \"total_pages\": 0}"
+        }
+      ]
+    },
+    {
+      "name": "/threads/project/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"project_id\": 1,\n  \"project_name\": \"Updated Project Name\",\n  \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\n  \"user_id\": \"user_123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/threads/project/update",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "threads",
+            "project",
+            "update"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"status\": \"success\", \"project_updated\": false, \"thread_updated\": true}"
+        }
+      ]
+    },
+    {
+      "name": "/threads/project/{project_id}",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7777/threads/project/{{project_id}}?user_id=Suvarna",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "threads",
+            "project",
+            "{{project_id}}"
+          ],
+          "query": [
+            {
+              "key": "user_id",
+              "value": "Suvarna"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"threads\": [], \"total\": 0, \"page\": 1, \"page_size\": 10, \"total_pages\": 0}"
+        }
+      ]
+    },
+    {
+      "name": "/chats/{chat_id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:7777/chats/{{chat_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "chats",
+            "{{chat_id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK"
+        }
+      ]
+    },
+    {
+      "name": "/scheduler/config-Get",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:7777/scheduler/config",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "scheduler",
+            "config"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"interval_days\": 14, \"run_time\": \"00:00\"}"
+        }
+      ]
+    },
+    {
+      "name": "/scheduler/config-update",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"interval_days\": 0,\n  \"run_time\": \"string\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/scheduler/config",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "scheduler",
+            "config"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 401,
+          "status": "Unauthorized",
+          "body": "{\"detail\":\"No authorization token provided\"}"
+        }
+      ]
+    },
+    {
+      "name": "/feedback-get by user_id",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:7777/feedback",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "feedback"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "[{\"trace_id\": \"3f1e97b9-0ceb-4d08-a8e2-e13143fd272c\", \"name\": \"user-feedback\", \"value\": 0.6, \"comment\": \"hiiii\", \"timestamp\": \"2025-07-18T09:35:48.544Z\", \"metadata\": {}}, {\"trace_id\": \"dd7b6564-b66a-4920-8069-23d6996d1aca\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"No additional comments provided\", \"timestamp\": \"2025-07-17T09:34:16.594Z\", \"metadata\": {}}, {\"trace_id\": \"24cd98ba-40b5-4d78-98cf-9d0aab46f6a0\", \"name\": \"user-feedback\", \"value\": 0.4, \"comment\": \"good\", \"timestamp\": \"2025-07-15T10:48:20.555Z\", \"metadata\": {}}, {\"trace_id\": \"1bb1c8b7-c425-4185-b712-2b4fd6c1314d\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"good\", \"timestamp\": \"2025-07-15T10:20:36.602Z\", \"metadata\": {}}, {\"trace_id\": \"0373bb62-eb1c-4284-b0b8-1497f364ee65\", \"name\": \"user-feedback\", \"value\": 1, \"comment\": \"Nice work\", \"timestamp\": \"2025-07-15T03:45:52.450Z\", \"metadata\": {}}, {\"trace_id\": \"2c80dd30-62fe-4d16-8362-ced38b3bc456\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"Test feedbck\", \"timestamp\": \"2025-07-15T03:17:46.944Z\", \"metadata\": {}}, {\"trace_id\": \"4b8a0142-0137-46ff-aaff-1e5100a6fa22\", \"name\": \"user-feedback\", \"value\": 0.6, \"comment\": \"This needs few improvements as some of the offers displayed are duplicate.\", \"timestamp\": \"2025-07-15T02:56:04.578Z\", \"metadata\": {}}, {\"trace_id\": \"01e505ec-a114-4451-a632-c7523c08e446\", \"name\": \"user-feedback\", \"value\": 1, \"comment\": \"Great response\", \"timestamp\": \"2025-07-15T02:36:40.313Z\", \"metadata\": {}}]"
+        }
+      ]
+    },
+    {
+      "name": "/api/feedbacks-Create new feedback record",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"comment\": \"Great service!\",\n  \"score\": 5,\n  \"created_by\": \"user123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7777/api/feedbacks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "api",
+            "feedbacks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 500,
+          "status": "Internal Server Error",
+          "body": "{\"detail\":\"An unexpected error occurred while creating feedback\"}"
+        }
+      ]
+    },
+    {
+      "name": "/api/feedback-records/{feedback_id}",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"John Doe Updated\",\r\n  \"comment\": \"Updated: Great service!\",\r\n  \"score\": 5,\r\n  \"updated_by\": \"user123\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "api",
+            "feedback-records",
+            "{{feedback_id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 422,
+          "status": "Unprocessable Entity",
+          "body": "{\"detail\":[{\"type\":\"int_parsing\",\"loc\":[\"path\",\"feedback_id\"],\"msg\":\"Input should be a valid integer, unable to parse string as an integer\",\"input\":\"3f1e97b9-0ceb-4d08-a8e2-e13143fd272c\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "/api/feedback-records/{feedback_id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "api",
+            "feedback-records",
+            "{{feedback_id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 422,
+          "status": "Unprocessable Entity",
+          "body": "{\"detail\":[{\"type\":\"int_parsing\",\"loc\":[\"path\",\"feedback_id\"],\"msg\":\"Input should be a valid integer, unable to parse string as an integer\",\"input\":\"3f1e97b9-0ceb-4d08-a8e2-e13143fd272c\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "/api/feedback-records/{feedback_id}",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"detail\": [\r\n    {\r\n      \"loc\": [\r\n        \"string\",\r\n        0\r\n      ],\r\n      \"msg\": \"string\",\r\n      \"type\": \"string\"\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "api",
+            "feedback-records",
+            "{{feedback_id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 422,
+          "status": "Unprocessable Entity",
+          "body": "{\"detail\":[{\"type\":\"int_parsing\",\"loc\":[\"path\",\"feedback_id\"],\"msg\":\"Input should be a valid integer, unable to parse string as an integer\",\"input\":\"3f1e97b9-0ceb-4d08-a8e2-e13143fd272c\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "/api/feedback-records",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:7777/api/feedback-records?skip=0&limit=100",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7777",
+          "path": [
+            "api",
+            "feedback-records"
+          ],
+          "query": [
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "100"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "status": "OK",
+          "body": "{\"feedbacks\": [], \"total\": 0, \"skip\": 0, \"limit\": 100}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "chat_id",
+      "value": "847c6285-8fc9-4560-a83f-4e6285809254"
+    },
+    {
+      "key": "shared_with_user_id",
+      "value": "Vaishnavi"
+    },
+    {
+      "key": "agent_id",
+      "value": "Offer-Fullfilment-Assistant"
+    },
+    {
+      "key": "thread_id",
+      "value": "847c6285-8fc9-4560-a83f-4e6285809254"
+    },
+    {
+      "key": "project_id",
+      "value": "1"
+    },
+    {
+      "key": "feedback_id",
+      "value": "3f1e97b9-0ceb-4d08-a8e2-e13143fd272c"
+    },
+    {
+      "key": "shared_by_user_id",
+      "value": "Suvarna"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+name: Naehas-API
+data_dir: Naehas-API
+patterns:
+    - public-api/Naehas Offer Fulfilment
