@@ -1,0 +1,724 @@
+{
+	"info": {
+		"_postman_id": "933180f1-8009-48fc-a1b1-1be1e7e4390a",
+		"name": "Naehas Offer Fulfilment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21358631",
+		"_collection_link": "https://crimson-sunset-654635.postman.co/workspace/Project~1fcdaf73-13a8-4feb-a52e-1b73b9b2d617/collection/21358631-933180f1-8009-48fc-a1b1-1be1e7e4390a?action=share&source=collection_link&creator=21358631"
+	},
+	"item": [
+		{
+			"name": "health check",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stream",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/event-stream"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"Show me all banks with their total number of offers\",\n  \"model\": \"gpt-4o-mini\",\n  \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\n  \"user_id\": \"Suvarna\",\n  \"label\": \"string\",\n  \"is_first_message\": false,\n  \"project_id\": 1,\n  \"stream_tokens\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/stream?agent_id=Offer-Fullfilment-Assistant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"stream"
+					],
+					"query": [
+						{
+							"key": "agent_id",
+							"value": "Offer-Fullfilment-Assistant"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chats/{chat_id}/share",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"chat_id\": \"{{chat_id}}\", \r\n\"shared_with_user_id\": \"{{shared_with_user_id}}\",\r\n\"shared_by_user_id\": \"{{shared_by_user_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/chats/{{chat_id}}}/share",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"chats",
+						"{{chat_id}}}",
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{agent_id}/invoke",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Show me all banks with their total number of offers\",\r\n    \"model\": \"gpt-4o-mini\",\r\n    \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\r\n    \"user_id\": \"XYZ\",\r\n    \"label\": \"string\",\r\n    \"is_first_message\": false,\r\n    \"project_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/{{agent_id}}/invoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"{{agent_id}}",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "History",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"thread_id\": \"{{thread_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threads",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/threads?user_id=Suvarna",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"threads"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "Suvarna"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threads/project-Create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"project_name\": \"Listing offers\",\n  \"user_id\": \"user_123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/threads/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"threads",
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threads/project-List",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/threads/projects?user_id=Suvarna",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"threads",
+						"projects"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "Suvarna"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threads/project/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"project_id\": 1,\n  \"project_name\": \"Updated Project Name\",\n  \"thread_id\": \"847c6285-8fc9-4560-a83f-4e6285809254\",\n  \"user_id\": \"user_123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/threads/project/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"threads",
+						"project",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threads/project/{project_id}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/threads/project/{{project_id}}?user_id=Suvarna",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"threads",
+						"project",
+						"{{project_id}}"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "Suvarna"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/chats/{chat_id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/chats/{{chat_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"chats",
+						"{{chat_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/scheduler/config-Get",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/scheduler/config",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"scheduler",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/scheduler/config-update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"interval_days\": 0,\n  \"run_time\": \"string\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/scheduler/config",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"scheduler",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/feedback-get by user_id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/feedbacks-Create new feedback record",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"comment\": \"Great service!\",\n  \"score\": 5,\n  \"created_by\": \"user123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/api/feedbacks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"feedbacks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/feedback-records/{feedback_id}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe Updated\",\r\n  \"comment\": \"Updated: Great service!\",\r\n  \"score\": 5,\r\n  \"updated_by\": \"user123\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"feedback-records",
+						"{{feedback_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/feedback-records/{feedback_id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"feedback-records",
+						"{{feedback_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/feedback-records/{feedback_id}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"detail\": [\r\n    {\r\n      \"loc\": [\r\n        \"string\",\r\n        0\r\n      ],\r\n      \"msg\": \"string\",\r\n      \"type\": \"string\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"feedback-records",
+						"{{feedback_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/feedback-records",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-naehas-agents.aaic.cc/api/feedback-records?skip=0&limit=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"feedback-records"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "chat_id",
+			"value": "847c6285-8fc9-4560-a83f-4e6285809254"
+		},
+		{
+			"key": "shared_with_user_id",
+			"value": "Vaishnavi"
+		},
+		{
+			"key": "agent_id",
+			"value": "Offer-Fullfilment-Assistant"
+		},
+		{
+			"key": "thread_id",
+			"value": "847c6285-8fc9-4560-a83f-4e6285809254"
+		},
+		{
+			"key": "project_id",
+			"value": "1"
+		},
+		{
+			"key": "feedback_id",
+			"value": "3f1e97b9-0ceb-4d08-a8e2-e13143fd272c"
+		},
+		{
+			"key": "shared_by_user_id",
+			"value": "Suvarna"
+		}
+	]
+}

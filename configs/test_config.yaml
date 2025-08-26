@@ -1,0 +1,22 @@
+name: naehas-public-api
+system_under_test:
+    hostname: dev-api.naehas.com
+environment_variables:
+    url: http://localhost:7777
+    #url: https://devdsdataops.alteryx-develop.demandscience-apps.com/ds
+    api-key: Ffk1FhjdGYa79vG9zOMYJ3zIjkmgVVUx7tl2Rl9v
+    Filepath :
+expected_response_generation:
+    response_body:
+        excluded_properties:
+            - id
+            - timestamp
+            - jobId
+            - createDate
+actual_response_validation:
+    response_body:
+         excluded_properties:
+            - id
+            - timestamp
+            - jobId
+            - createDate

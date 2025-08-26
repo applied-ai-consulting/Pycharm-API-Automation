@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+__pycache__/
+.pytest_cache/
+.hypothesis/
+logs/
+.idea/
+.deepeval/
+report
+xml_report
