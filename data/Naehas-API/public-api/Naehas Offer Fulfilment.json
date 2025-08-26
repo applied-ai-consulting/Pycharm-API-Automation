@@ -21,7 +21,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:7777/health",
+          "raw": "https://api-naehas-agents.aaic.cc/health",
           "protocol": "http",
           "host": [
             "localhost"
@@ -35,8 +35,7 @@
       "response": [
         {
           "code": 200,
-          "status": "OK",
-          "body": "{\"status\": \"ok\"}"
+          "status": "OK"
         }
       ]
     },
@@ -54,7 +53,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:7777/info",
+          "raw": "https://api-naehas-agents.aaic.cc/info",
           "protocol": "http",
           "host": [
             "localhost"
@@ -100,7 +99,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/stream?agent_id=Offer-Fullfilment-Assistant",
+          "raw": "https://api-naehas-agents.aaic.cc/stream?agent_id=Offer-Fullfilment-Assistant",
           "protocol": "http",
           "host": [
             "localhost"
@@ -148,7 +147,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/chats/{{chat_id}}}/share",
+          "raw": "https://api-naehas-agents.aaic.cc/chats/{{chat_id}}}/share",
           "protocol": "http",
           "host": [
             "localhost"
@@ -186,7 +185,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/{{agent_id}}/invoke",
+          "raw": "https://api-naehas-agents.aaic.cc/{{agent_id}}/invoke",
           "protocol": "http",
           "host": [
             "localhost"
@@ -223,7 +222,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/history",
+          "raw": "https://api-naehas-agents.aaic.cc/history",
           "protocol": "http",
           "host": [
             "localhost"
@@ -250,7 +249,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:7777/threads?user_id=Suvarna",
+          "raw": "https://api-naehas-agents.aaic.cc/threads?user_id=Suvarna",
           "protocol": "http",
           "host": [
             "localhost"
@@ -302,7 +301,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/threads/project",
+          "raw": "https://api-naehas-agents.aaic.cc/threads/project",
           "protocol": "http",
           "host": [
             "localhost"
@@ -331,7 +330,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:7777/threads/projects?user_id=Suvarna",
+          "raw": "https://api-naehas-agents.aaic.cc/threads/projects?user_id=Suvarna",
           "protocol": "http",
           "host": [
             "localhost"
@@ -381,7 +380,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/threads/project/update",
+          "raw": "https://api-naehas-agents.aaic.cc/threads/project/update",
           "protocol": "http",
           "host": [
             "localhost"
@@ -397,8 +396,7 @@
       "response": [
         {
           "code": 200,
-          "status": "OK",
-          "body": "{\"status\": \"success\", \"project_updated\": false, \"thread_updated\": true}"
+          "status": "OK"
         }
       ]
     },
@@ -411,7 +409,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:7777/threads/project/{{project_id}}?user_id=Suvarna",
+          "raw": "https://api-naehas-agents.aaic.cc/threads/project/{{project_id}}?user_id=Suvarna",
           "protocol": "http",
           "host": [
             "localhost"
@@ -454,7 +452,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "http://localhost:7777/chats/{{chat_id}}",
+          "raw": "https://api-naehas-agents.aaic.cc/chats/{{chat_id}}",
           "protocol": "http",
           "host": [
             "localhost"
@@ -487,7 +485,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:7777/scheduler/config",
+          "raw": "https://api-naehas-agents.aaic.cc/scheduler/config",
           "protocol": "http",
           "host": [
             "localhost"
@@ -502,8 +500,7 @@
       "response": [
         {
           "code": 200,
-          "status": "OK",
-          "body": "{\"interval_days\": 14, \"run_time\": \"00:00\"}"
+          "status": "OK"
         }
       ]
     },
@@ -534,7 +531,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/scheduler/config",
+          "raw": "https://api-naehas-agents.aaic.cc/scheduler/config",
           "protocol": "http",
           "host": [
             "localhost"
@@ -568,7 +565,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:7777/feedback",
+          "raw": "https://api-naehas-agents.aaic.cc/feedback",
           "protocol": "http",
           "host": [
             "localhost"
@@ -582,8 +579,7 @@
       "response": [
         {
           "code": 200,
-          "status": "OK",
-          "body": "[{\"trace_id\": \"3f1e97b9-0ceb-4d08-a8e2-e13143fd272c\", \"name\": \"user-feedback\", \"value\": 0.6, \"comment\": \"hiiii\", \"timestamp\": \"2025-07-18T09:35:48.544Z\", \"metadata\": {}}, {\"trace_id\": \"dd7b6564-b66a-4920-8069-23d6996d1aca\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"No additional comments provided\", \"timestamp\": \"2025-07-17T09:34:16.594Z\", \"metadata\": {}}, {\"trace_id\": \"24cd98ba-40b5-4d78-98cf-9d0aab46f6a0\", \"name\": \"user-feedback\", \"value\": 0.4, \"comment\": \"good\", \"timestamp\": \"2025-07-15T10:48:20.555Z\", \"metadata\": {}}, {\"trace_id\": \"1bb1c8b7-c425-4185-b712-2b4fd6c1314d\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"good\", \"timestamp\": \"2025-07-15T10:20:36.602Z\", \"metadata\": {}}, {\"trace_id\": \"0373bb62-eb1c-4284-b0b8-1497f364ee65\", \"name\": \"user-feedback\", \"value\": 1, \"comment\": \"Nice work\", \"timestamp\": \"2025-07-15T03:45:52.450Z\", \"metadata\": {}}, {\"trace_id\": \"2c80dd30-62fe-4d16-8362-ced38b3bc456\", \"name\": \"user-feedback\", \"value\": 0.2, \"comment\": \"Test feedbck\", \"timestamp\": \"2025-07-15T03:17:46.944Z\", \"metadata\": {}}, {\"trace_id\": \"4b8a0142-0137-46ff-aaff-1e5100a6fa22\", \"name\": \"user-feedback\", \"value\": 0.6, \"comment\": \"This needs few improvements as some of the offers displayed are duplicate.\", \"timestamp\": \"2025-07-15T02:56:04.578Z\", \"metadata\": {}}, {\"trace_id\": \"01e505ec-a114-4451-a632-c7523c08e446\", \"name\": \"user-feedback\", \"value\": 1, \"comment\": \"Great response\", \"timestamp\": \"2025-07-15T02:36:40.313Z\", \"metadata\": {}}]"
+          "status": "OK"
         }
       ]
     },
@@ -614,7 +610,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:7777/api/feedbacks",
+          "raw": "https://api-naehas-agents.aaic.cc/api/feedbacks",
           "protocol": "http",
           "host": [
             "localhost"
@@ -629,8 +625,7 @@
       "response": [
         {
           "code": 500,
-          "status": "Internal Server Error",
-          "body": "{\"detail\":\"An unexpected error occurred while creating feedback\"}"
+          "status": "Internal Server Error"
         }
       ]
     },
@@ -647,7 +642,7 @@
           "raw": "{\r\n  \"name\": \"John Doe Updated\",\r\n  \"comment\": \"Updated: Great service!\",\r\n  \"score\": 5,\r\n  \"updated_by\": \"user123\"\r\n}"
         },
         "url": {
-          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
           "protocol": "http",
           "host": [
             "localhost"
@@ -684,7 +679,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
           "protocol": "http",
           "host": [
             "localhost"
@@ -718,7 +713,7 @@
           "raw": "{\r\n  \"detail\": [\r\n    {\r\n      \"loc\": [\r\n        \"string\",\r\n        0\r\n      ],\r\n      \"msg\": \"string\",\r\n      \"type\": \"string\"\r\n    }\r\n  ]\r\n}"
         },
         "url": {
-          "raw": "http://localhost:7777/api/feedback-records/{{feedback_id}}",
+          "raw": "https://api-naehas-agents.aaic.cc/api/feedback-records/{{feedback_id}}",
           "protocol": "http",
           "host": [
             "localhost"
@@ -753,7 +748,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:7777/api/feedback-records?skip=0&limit=100",
+          "raw": "https://api-naehas-agents.aaic.cc/api/feedback-records?skip=0&limit=100",
           "protocol": "http",
           "host": [
             "localhost"
@@ -778,8 +773,7 @@
       "response": [
         {
           "code": 200,
-          "status": "OK",
-          "body": "{\"feedbacks\": [], \"total\": 0, \"skip\": 0, \"limit\": 100}"
+          "status": "OK"
         }
       ]
     }
